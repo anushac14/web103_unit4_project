@@ -17,7 +17,8 @@ export default defineConfig({
   server: {
     proxy: {
       '/items': {
-        target: 'http://localhost:5001'
+        target: 'http://localhost:5001',
+        changeOrigin: true
       }
     }
   }

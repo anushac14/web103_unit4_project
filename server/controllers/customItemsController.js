@@ -32,12 +32,14 @@ export const updateCustomItem = async (req, res) => {
 
 export const deleteCustomItem = async (req, res) => {
     const { id } = req.params;
+    console.log('Deleting item with ID:', id);
     await pool.query('DELETE FROM custom_items WHERE id=$1', [id]);
     res.send('Custom Item Deleted');
 };
 
 export default {
     getCustomItems,
+    createCustomItem,
     updateCustomItem,
     deleteCustomItem
 };

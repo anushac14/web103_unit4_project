@@ -14,7 +14,7 @@ export const createCustomItem = async (item) => {
 };
 
 export const updateCustomItem = async (id, item) => {
-    const response = await fetch(`/items/${id}`, {
+    const response = await fetch(`http://localhost:5001/items/`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(item)

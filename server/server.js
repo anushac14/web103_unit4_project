@@ -7,6 +7,8 @@ import customItemsRoutes from './routes/customItemsRoutes.js';
 const app = express();
 app.use(cors());
 
+app.use(express.json());
+
 app.use('/items', customItemsRoutes);
 
 app.get('/', (req, res) => {
