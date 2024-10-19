@@ -1,10 +1,10 @@
-# WEB103 Project 4 - *Name of App Here*
+# WEB103 Project 4 - CustomCar
 
-Submitted by: **Your name here**
+Submitted by: Anusha Chinthamaduka
 
-About this web app: **App description here**
+About this web app: Custom Car Website
 
-Time spent: **X** hours
+Time spent: 4 hours
 
 ## Required Features
 
