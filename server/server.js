@@ -1,36 +1,17 @@
-import express from 'express'
-import path from 'path'
-import favicon from 'serve-favicon'
-import dotenv from 'dotenv'
+// server.js
+import express from 'express';
+import cors from 'cors';
+import './config/dotenv.js';
+import customItemsRoutes from './routes/customItemsRoutes.js';
 
-// import the router from your routes file
+const app = express();
+app.use(cors());
 
+app.use('/items', customItemsRoutes);
 
-dotenv.config()
+app.get('/', (req, res) => {
+    res.status(200).send('<h1 style="text-align: center; margin-top: 50px;">UnEarthed API</h1>');
+  });
 
-const PORT = process.env.PORT || 3000
-
-const app = express()
-
-app.use(express.json())
-
-if (process.env.NODE_ENV === 'development') {
-    app.use(favicon(path.resolve('../', 'client', 'public', 'lightning.png')))
-}
-else if (process.env.NODE_ENV === 'production') {
-    app.use(favicon(path.resolve('public', 'lightning.png')))
-    app.use(express.static('public'))
-}
-
-// specify the api path for the server to use
-
-
-if (process.env.NODE_ENV === 'production') {
-    app.get('/*', (_, res) =>
-        res.sendFile(path.resolve('public', 'index.html'))
-    )
-}
-
-app.listen(PORT, () => {
-    console.log(`server listening on http://localhost:${PORT}`)
-})
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
